@@ -77,7 +77,7 @@ class TargetTrajectoriesPublisher final {
       cmdVel[1] = msg->linear.y;
       cmdVel[2] = msg->linear.z;
       cmdVel[3] = msg->angular.z;
-
+      // ROS_INFO("Received cmd vel command!");
       const auto trajectories = cmdVelToTargetTrajectories_(cmdVel, latestObservation_);
       targetTrajectoriesPublisher_->publishTargetTrajectories(trajectories);
     };

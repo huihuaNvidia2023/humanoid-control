@@ -17,6 +17,7 @@ class KeyboardController:
                 # 退出程序
                 rospy.signal_shutdown("Quit")
             else:
+                rospy.loginfo("Recieved keyboard input")
                 # 根据按键设置线性速度和角速度
                 if key.char == 'w':
                     self.twist_msg.linear.x = 0.4

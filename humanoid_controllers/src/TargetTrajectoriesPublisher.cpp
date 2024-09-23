@@ -88,6 +88,8 @@ TargetTrajectories cmdVelToTargetTrajectories(const vector_t& cmdVel, const Syst
 
   // target reaching duration
   const scalar_t targetReachingTime = observation.time + timeToTarget;
+  // ROS_INFO("Target reaching time: %f", targetReachingTime);
+  // ROS_INFO_STREAM("Target pose: " << targetPose);
   auto trajectories = targetPoseToTargetTrajectories(targetPose, observation, targetReachingTime);
       trajectories.stateTrajectory[0].head(3) = cmdVelRot;
     trajectories.stateTrajectory[1].head(3) = cmdVelRot;

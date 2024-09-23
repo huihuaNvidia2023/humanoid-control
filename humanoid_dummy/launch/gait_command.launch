@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<launch>
+    <arg name="robot_type" default="humanoid"/>
+    <arg name="gaitCommandFile"   default="$(find humanoid_interface)/config/command/gait.info"/>
+
+    <!-- make the files into global parameters -->
+    <param name="gaitCommandFile"   value="$(arg gaitCommandFile)"/>
+
+    <node pkg="humanoid_dummy" type="humanoid_gait_command" name="humanoid_gait_command"
+          output="screen"/>
+</launch>
