@@ -16,25 +16,25 @@
     <arg name="urdfFile"          default="$(find humanoid_legged_description)/urdf/humanoid_legged_control.urdf"/>
     <arg name="urdfFileOrigin"    default="$(find humanoid_legged_description)/urdf/humanoid_legged_origin.urdf"/>
     <!-- The file defining gait definition -->
-    <arg name="gaitCommandFile"   default="$(find humanoid_interface)/config/command/gait.info"/>
+    <!-- <arg name="gaitCommandFile"   default="$(find humanoid_interface)/config/command/gait.info"/> -->
 
     <!-- rviz -->
-    <group if="$(arg rviz)">
+    <!-- <group if="$(arg rviz)">
       <param name="$(arg description_name)" textfile="$(arg urdfFileOrigin)"/>
       <arg name="rvizconfig" default="$(find humanoid_dummy)/rviz/humanoid.rviz" />
       <node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rvizconfig)" output="screen" />
-    </group>
+    </group> -->
 
     <!-- make the files into global parameters -->
     <param name="taskFile"          value="$(arg taskFile)" />
     <param name="referenceFile"     value="$(arg referenceFile)" />
     <param name="urdfFile"          value="$(arg urdfFile)" />
     <param name="urdfFileOrigin"          value="$(arg urdfFileOrigin)" />
-    <param name="gaitCommandFile"   value="$(arg gaitCommandFile)"/>
+    <!-- <param name="gaitCommandFile"   value="$(arg gaitCommandFile)"/> -->
     <param name="$(arg description_name)" textfile="$(arg urdfFileOrigin)"/>
 
-    <node pkg="humanoid_dummy" type="humanoid_gait_command" name="humanoid_gait_command"
-          output="screen"/>
+    <!-- <node pkg="humanoid_dummy" type="humanoid_gait_command" name="humanoid_gait_command"
+          output="screen"/> -->
 
     <node pkg="humanoid_controllers" type="humanoid_target_trajectories_publisher" name="humanoid_target"
           output="screen"/>
